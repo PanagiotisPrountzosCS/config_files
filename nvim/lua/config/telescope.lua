@@ -30,7 +30,18 @@ telescope.setup({
 
 -- Set up keymaps
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", keys.telescope_file_search, builtin.find_files, { desc = "File search" })
-vim.keymap.set("n", keys.telescope_text_search, builtin.live_grep, { desc = "Text search" })
+
+vim.keymap.set("n", keys.telescope_file_search, function()
+		builtin.find_files({
+				hidden = true,
+				file_ignore_patterns = { "^%.git/", "^build/" },
+		})
+end, { desc = "File search" })
+vim.keymap.set("n", keys.telescope_text_search, function()
+		builtin.live_grep({
+				hidden = true,
+				file_ignore_patterns = { "^%.git/", "^build/" },
+		})
+end, { desc = "Text search" })
 vim.keymap.set("n", keys.telescope_open_buffers, builtin.buffers, { desc = "Buffers" })
 vim.keymap.set("n", keys.telescope_help_tags, builtin.help_tags, { desc = "Help Tags" })

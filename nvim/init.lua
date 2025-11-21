@@ -21,6 +21,8 @@ vim.o.clipboard = "unnamedplus"
 --keymap definitions
 
 _G.keybinds = {
+		vim_noh = "<C-h>",
+		vim_close_buffer = "<C-x>b",
 		lsp_show_diagnostics = "<leader>d",
 		lsp_jump_to_definition = "gd",
 		lsp_jump_to_declaration = "gD",
@@ -34,14 +36,14 @@ _G.keybinds = {
 		telescope_help_tags = "<leader>h",
 		cmp_popup = "<C-Space>",
 		cmp_accept_autocomplete = "<Tab>",
-		cmp_close_popup = "<Esc>"
+		cmp_close_popup = "<Esc>",
 }
 
 --binary definitions
 --These can be the programs a package looks for, e.g. ripgrep for telescope.nvim
 
 _G.binaries = {
-		telescope_grep = "rg"
+		telescope_grep = "rg",
 }
 
 --submodules
@@ -52,3 +54,9 @@ require("config.git")
 require("config.themes")
 require("config.telescope")
 require("config.autocomplete")
+require("config.copilot")
+
+--vim keymaps
+vim.keymap.set('n', keybinds.vim_noh, ':noh<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', keybinds.vim_close_buffer, ':bdelete<CR>', { desc = 'Close buffer' })
+

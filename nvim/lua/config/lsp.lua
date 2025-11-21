@@ -34,4 +34,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end,
 })
 
-vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
+  init_options = {
+    fallbackFlags = { "-std=c++20" }
+  },
+})
+
+vim.lsp.enable('clangd', {
+		cmd = { "clangd" },
+})
