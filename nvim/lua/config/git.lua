@@ -1,4 +1,5 @@
 vim.pack.add{{src = 'https://github.com/lewis6991/gitsigns.nvim'}}
+vim.pack.add{{src = 'https://github.com/tpope/vim-fugitive'}}
 
 require('gitsigns').setup({
 		current_line_blame = true,
@@ -9,3 +10,5 @@ require('gitsigns').setup({
 		},
 		current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
 })
+
+

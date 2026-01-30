@@ -6,7 +6,6 @@
 --
 
 --basic options
-
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = "yes"
@@ -29,21 +28,24 @@ _G.keybinds = {
 		lsp_jump_to_implementation = "gi",
 		lsp_hover_message = "K",
 		lsp_switch_header_source = "<F4>",
-		format = "<leader>f",
-		telescope_file_search = "<C-k>",
-		telescope_text_search = "<C-g>",
-		telescope_open_buffers = "<C-b>",
-		telescope_help_tags = "<leader>h",
+		format_file = "<leader>f",
+		format_visual = "<leader>vf",
+		file_search = "<C-k>",
+		text_search = "<C-g>",
+		open_buffers = "<C-b>",
+		help_tags = "<leader>h",
 		cmp_popup = "<C-Space>",
 		cmp_accept_autocomplete = "<Tab>",
 		cmp_close_popup = "<Esc>",
 }
 
 --binary definitions
---These can be the programs a package looks for, e.g. ripgrep for telescope.nvim
 
 _G.binaries = {
-		telescope_grep = "rg",
+		grep_tool = "rg",
+}
+
+_G.paths = {
 }
 
 --submodules
@@ -52,11 +54,14 @@ require("config.lsp")
 require("config.format")
 require("config.git")
 require("config.themes")
-require("config.telescope")
+require("config.fzf")
 require("config.autocomplete")
 require("config.copilot")
 
 --vim keymaps
 vim.keymap.set('n', keybinds.vim_noh, ':noh<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', keybinds.vim_close_buffer, ':bdelete<CR>', { desc = 'Close buffer' })
-
+vim.keymap.set("n", "<M-j>", "jzz", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-k>", "kzz", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-Down>", "jzz", { noremap = true, silent = true })
+vim.keymap.set("n", "<M-Up>", "kzz", { noremap = true, silent = true })
