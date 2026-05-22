@@ -6,7 +6,7 @@ vim.pack.add{
 		{ src = "https://github.com/junegunn/fzf.vim" },
 }
 
-vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude .cache --exclude build --exclude node_modules"
+vim.env.FZF_DEFAULT_COMMAND = bins.file_finder .. " --type f --hidden --exclude .git --exclude .cache --exclude build --exclude node_modules"
 vim.env.FZF_DEFAULT_OPTS = (vim.env.FZF_DEFAULT_OPTS or "") .. " --preview-window=right:50% --no-hscroll"
 
 -- Ripgrep configuration for text search
@@ -27,7 +27,7 @@ local rg_excludes = {
 		"README.md",
 }
 
-local rg_command = "rg " .. table.concat(rg_opts, " ")
+local rg_command = bins.grep_tool .. " " .. table.concat(rg_opts, " ")
 for _, exclude in ipairs(rg_excludes) do
 		rg_command = rg_command .. ' --glob "!' .. exclude .. '"'
 end

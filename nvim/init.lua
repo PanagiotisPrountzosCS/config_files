@@ -11,6 +11,7 @@ vim.o.relativenumber = true
 vim.o.signcolumn = "yes"
 vim.o.wrap = false
 vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 vim.o.swapfile = false
 vim.g.mapleader = " "
 vim.o.winborder = "rounded"
@@ -43,6 +44,7 @@ _G.keybinds = {
 
 _G.binaries = {
 		grep_tool = "rg",
+		file_finder = "fd",
 }
 
 _G.paths = {
