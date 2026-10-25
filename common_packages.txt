@@ -1,0 +1,12 @@
+ripgrep
+fd-find
+clangd
+clang-format
+curl
+vim
+build-essential
+git
+cmake
+zsh
+tmux
+

@@ -44,7 +44,7 @@ _G.keybinds = {
 
 _G.binaries = {
 		grep_tool = "rg",
-		file_finder = "fd",
+		file_finder = "fdfind",
 }
 
 _G.paths = {
@@ -54,11 +54,11 @@ _G.paths = {
 
 require("config.lsp")
 require("config.format")
-require("config.git")
+--require("config.git")
 require("config.themes")
 require("config.fzf")
 require("config.autocomplete")
-require("config.copilot")
+--require("config.copilot")
 
 --vim keymaps
 vim.keymap.set('n', keybinds.vim_noh, ':noh<CR>', {noremap = true, silent = true})
