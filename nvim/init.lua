@@ -23,6 +23,8 @@ vim.o.clipboard = "unnamedplus"
 _G.keybinds = {
 		vim_noh = "<C-h>",
 		vim_close_buffer = "<C-x>b",
+		vim_append_at_word_end = "<C-f>",
+		vim_append_at_next_space = "<C-c>",
 		lsp_show_diagnostics = "<leader>d",
 		lsp_jump_to_definition = "gd",
 		lsp_jump_to_declaration = "gD",
@@ -54,16 +56,18 @@ _G.paths = {
 
 require("config.lsp")
 require("config.format")
---require("config.git")
+require("config.git")
 require("config.themes")
 require("config.fzf")
 require("config.autocomplete")
---require("config.copilot")
+require("config.copilot")
 
 --vim keymaps
 vim.keymap.set('n', keybinds.vim_noh, ':noh<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', keybinds.vim_close_buffer, ':bdelete<CR>', { desc = 'Close buffer' })
-vim.keymap.set("n", "<M-j>", "jzz", { noremap = true, silent = true })
-vim.keymap.set("n", "<M-k>", "kzz", { noremap = true, silent = true })
-vim.keymap.set("n", "<M-Down>", "jzz", { noremap = true, silent = true })
-vim.keymap.set("n", "<M-Up>", "kzz", { noremap = true, silent = true })
+vim.keymap.set('n', keybinds.vim_append_at_next_space, ':<Esc>Ea', {noremap = true, silent = true})
+vim.keymap.set('n', keybinds.vim_append_at_word_end, ':<Esc>ea', {noremap = true, silent = true})
+vim.keymap.set('n', "<M-j>", "jzz", { noremap = true, silent = true })
+vim.keymap.set('n', "<M-k>", "kzz", { noremap = true, silent = true })
+vim.keymap.set('n', "<M-Down>", "jzz", { noremap = true, silent = true })
+vim.keymap.set('n', "<M-Up>", "kzz", { noremap = true, silent = true })
